@@ -13,6 +13,10 @@ class Event
     # binding.pry  # Ajout de binding.pry pour interagir avec le code
   end
 
+  def postpone_by_one_day
+    @start_date += 60 * 60 * 24  # Ajoute une journée en secondes à @start_date
+  end
+
   def end_date
     @start_date + (@duration * 60)  # Calcule la date de fin de l'événement
   end
@@ -43,3 +47,8 @@ elsif event.is_soon?
 else
   puts "Cet événement est à venir."
 end
+
+# Postponement example
+event.postpone_by_one_day
+puts "\nAprès le report d'un jour :"
+puts event.to_s
